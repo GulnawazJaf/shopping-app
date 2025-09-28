@@ -5,7 +5,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-      <div className="container-fluid">
+      <div className="container-fluid"> {/* full width container */}
         <a className="navbar-brand" href="#">
           🛍️ ShoppingApp
         </a>
@@ -18,7 +18,7 @@ export default function Navbar() {
         </button>
 
         <div className={`collapse navbar-collapse ${isNavOpen ? "show" : ""}`}>
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
               <a className="nav-link active" href="#">
                 Home
