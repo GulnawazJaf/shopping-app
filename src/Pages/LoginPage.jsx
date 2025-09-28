@@ -1,7 +1,5 @@
 import { useState } from "react";
-// import CustomInput from "./components/CustomInput.jsx";
 import CustomInput from "../components/CustomInput";
-
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -45,6 +43,7 @@ export default function LoginPage() {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    autoComplete="current-password"
                   />
                 </div>
                 <button type="submit" className="btn btn-primary w-100">
