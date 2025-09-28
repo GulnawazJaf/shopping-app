@@ -1,26 +1,35 @@
 import { useState } from "react";
+import CustomInput from "../components/CustomInput";
 
-export default function LoginForm() {
+export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    alert(`Logged in as: ${email}`);
+
+    const token = Math.random().toString(36).substring(2);
+    localStorage.setItem("token", token);
+    localStorage.setItem("email", email);
+    localStorage.setItem("password", password);
+
+    alert("Logged in successfully");
+
+    setEmail("");
+    setPassword("");
   };
 
   return (
     <div className="container mt-5">
       <div className="row justify-content-center">
-        <div className="col-md-4">
+        <div className="col-md-6 col-lg-4">
           <div className="card shadow">
             <div className="card-body">
               <h3 className="text-center mb-4">Login</h3>
               <form onSubmit={handleSubmit}>
                 <div className="mb-3">
-                  <input
+                  <CustomInput
                     type="email"
-                    className="form-control"
                     placeholder="Email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
@@ -28,13 +37,13 @@ export default function LoginForm() {
                   />
                 </div>
                 <div className="mb-3">
-                  <input
+                  <CustomInput
                     type="password"
-                    className="form-control"
                     placeholder="Password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
+                    autoComplete="current-password"
                   />
                 </div>
                 <button type="submit" className="btn btn-primary w-100">
